@@ -1,5 +1,6 @@
-const catsService = require('./cats-service');
+const catsService = require('./cats-service'); //Menyambungkan ke service
 
+//fungsi dasar untuk mengcreate data dan menghubungkan ke cats-service
 async function createCat (req, res, next){
     try {
       const {

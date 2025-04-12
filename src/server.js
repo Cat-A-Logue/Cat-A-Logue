@@ -10,6 +10,7 @@ app.use(express.json());
 //menggunakan prefix dari config.js dalam routes
 app.use(`${config.api.prefix}`, routes());
 
+//melihat apakah server berjalan dengan baik atau tidak
 app.listen(port, (err)=> {
     if(err){
         console.log('Server failed to Run');

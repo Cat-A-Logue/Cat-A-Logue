@@ -3,7 +3,6 @@ const dotenv = require('dotenv');
 process.env.NODE_ENV = (process.env.NODE_ENV || 'development').toLowerCase(); 
 
 //Menggunakan library dotenv untuk mengkonfigurasi ke environment yang sudah dibuat
-//Melakukan pengecekan jika path tidak ditemui
 const envFound = dotenv.config({path : '.env'});
 if(envFound.error){
     throw new Error ('.env file is not found!');

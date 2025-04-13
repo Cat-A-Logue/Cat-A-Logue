@@ -1,6 +1,5 @@
-const catsService = require('./cats-service'); //Menyambungkan ke service
+const catsService = require('./cats-service');
 
-//fungsi dasar untuk mengcreate data dan menghubungkan ke cats-service
 async function createCat (req, res, next){
     try {
       const {
@@ -29,6 +28,16 @@ async function createCat (req, res, next){
     }
 }
 
+async function getAllCats(req, res, next) {
+  try {
+    const cats = await catsService.getAllCats();
+    return res.status(200).json(cats);
+  } catch (error) {
+    return next(error);
+  }
+}
+
 module.exports = {
     createCat,
+    getAllCats,
 }

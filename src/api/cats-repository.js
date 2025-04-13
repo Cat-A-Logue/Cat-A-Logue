@@ -8,6 +8,11 @@ return await Cat.create({id, breed, origin, country_code, life_span, characteris
                     description, image_url, width, height, mime_type});         
 }
 
+async function getAllCats() {
+    return await Cat.find();
+}
+
 module.exports = {
     createCat,
+    getAllCats,
 } 

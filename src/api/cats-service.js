@@ -7,7 +7,12 @@ async function createCat(id, breed, origin, country_code, life_span, characteris
                                           description, image_url, width, height, mime_type);
     return cats;
 }
+//Memanggil fungsi getAllCats di cats-repository
+async function getAllCats() {
+    return await catsRepository.getAllCats();
+}
 
 module.exports = {
     createCat,
+    getAllCats,
 }

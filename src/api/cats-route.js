@@ -10,4 +10,7 @@ module.exports = (app) => {
     app.use('/cats', route);
     //create a new cat
     route.post('/', catsController.createCat);
+
+    //get all cats
+    route.get('/', catsController.getAllCats);
 };

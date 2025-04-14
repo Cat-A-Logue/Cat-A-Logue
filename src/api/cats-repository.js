@@ -7,25 +7,22 @@ async function createCat(id, breed, origin, country_code, life_span, characteris
 return await Cat.create({id, breed, origin, country_code, life_span, characteristic,
                     description, image_url, width, height, mime_type});         
 }
-
+//fungsi untuk mencari data cat dengan get
 async function getAllCats() {
     return await Cat.find();
 }
-
-//async function deleteCat(id) {
-    //const cat = await Cat.findByIdAndDelete(id);
-    //if (!cat) {
-      //  throw new Error('Cat not found');
-    //}
-  //  return cat;
-//}
-
+//fungsi untuk menghapus data cat dengan delete
 async function deleteCat(id) {
-    return await Cat.findOneAndDelete({ id }); // karena kamu pakai id custom, bukan _id
-  }
+    return await Cat.findOneAndDelete({ id });
+}
+//fungsi untuk mencari data cat yang lebih spesifik dengan get disertakan id
+async function getCatById(id) {
+  return await Cat.findOne({ id });
+}
   
 module.exports = {
     createCat,
     getAllCats,
     deleteCat,
+    getCatById,
 } 

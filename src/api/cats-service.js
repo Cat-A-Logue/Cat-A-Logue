@@ -11,8 +11,13 @@ async function createCat(id, breed, origin, country_code, life_span, characteris
 async function getAllCats() {
     return await catsRepository.getAllCats();
 }
+//Memanggil fungsi deleteCat di cats-repository
+async function deleteCat(id) {
+    return await catsRepository.deleteCat(id);
+}
 
 module.exports = {
     createCat,
     getAllCats,
+    deleteCat
 }

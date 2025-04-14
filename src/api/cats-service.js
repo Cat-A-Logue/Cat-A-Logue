@@ -15,9 +15,14 @@ async function getAllCats() {
 async function deleteCat(id) {
     return await catsRepository.deleteCat(id);
 }
+//Memanggil fungsi getCatById di cats-repository
+async function getCatById(id) {
+    return await catsRepository.getCatById(id);
+}
 
 module.exports = {
     createCat,
     getAllCats,
-    deleteCat
+    deleteCat,
+    getCatById,
 }

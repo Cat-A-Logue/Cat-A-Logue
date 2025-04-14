@@ -12,7 +12,20 @@ async function getAllCats() {
     return await Cat.find();
 }
 
+//async function deleteCat(id) {
+    //const cat = await Cat.findByIdAndDelete(id);
+    //if (!cat) {
+      //  throw new Error('Cat not found');
+    //}
+  //  return cat;
+//}
+
+async function deleteCat(id) {
+    return await Cat.findOneAndDelete({ id }); // karena kamu pakai id custom, bukan _id
+  }
+  
 module.exports = {
     createCat,
     getAllCats,
+    deleteCat,
 } 

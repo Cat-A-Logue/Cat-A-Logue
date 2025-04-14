@@ -37,7 +37,27 @@ async function getAllCats(req, res, next) {
   }
 }
 
+async function deleteCat(req, res, next) {
+  try {
+    const { id } = req.params;
+
+    if (!id) {
+      return res.status(400).json({ error: 'ID is required' });
+    }
+
+    const cat = await catsService.deleteCat(id);
+    if (!cat) {
+      return res.status(404).json({ error: 'Cat not found' });
+    }
+
+    return res.status(200).json(cat);
+  } catch (error) {
+    return next(error);
+  }
+}
+
 module.exports = {
     createCat,
     getAllCats,
+    deleteCat,
 }

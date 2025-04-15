@@ -13,12 +13,16 @@ module.exports = (app) => {
 
   //get all cats
   route.get("/", catsController.getAllCats);
+
   //delete a cat by id
   route.delete("/:id", catsController.deleteCat);
 
   //get cat by id
   route.get("/:id", catsController.getCatById);
 
-  //update cat by id
+  //get cat by breed
+  route.get("/breed/:breed", catsController.getByBreed);
+
+  //put / update by id
   route.put("/:id", catsController.updateCat);
 };

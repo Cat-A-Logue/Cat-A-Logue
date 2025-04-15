@@ -19,10 +19,16 @@ async function deleteCat(id) {
 async function getCatById(id) {
   return await Cat.findOne({ id });
 }
-  
+
+//fungsi untuk mencari data cat berdasarkan breed name
+async function getByBreed(breedName) {
+    return await Cat.find({ breed: breedName });
+}
+
 module.exports = {
     createCat,
     getAllCats,
     deleteCat,
     getCatById,
+    getByBreed,
 } 

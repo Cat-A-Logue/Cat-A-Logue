@@ -20,9 +20,15 @@ async function getCatById(id) {
     return await catsRepository.getCatById(id);
 }
 
+//Memanggil fungsi getBreed di cats-repository
+async function getByBreed(breedName) {
+    return await catsRepository.getByBreed(breedName);
+}
+
 module.exports = {
     createCat,
     getAllCats,
     deleteCat,
     getCatById,
+    getByBreed,
 }

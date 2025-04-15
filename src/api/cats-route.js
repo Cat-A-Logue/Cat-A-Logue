@@ -19,4 +19,8 @@ module.exports = (app) => {
 
     //get cat by id
     route.get('/:id', catsController.getCatById);
+
+    //get cat by breed
+    route.get('/breed/:breed', catsController.getByBreed);
+
 };

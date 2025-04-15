@@ -74,9 +74,30 @@ async function getCatById(req, res, next) {
   }
 }
 
+async function getByBreed(req, res, next) {
+  try {
+    const { breed } = req.params;
+
+    if (!breed) {
+      return res.status(400).json({ error: 'Breed name is required' });
+    }
+
+    const cats = await catsService.getByBreed(breed);
+    if (cats.length === 0) {
+      return res.status(404).json({ error: 'No cats found for this breed' });
+    }
+
+    return res.status(200).json(cats);
+  }
+  catch (error) {
+    return next(error);
+  }
+}
+
 module.exports = {
     createCat,
     getAllCats,
     deleteCat,
     getCatById,
+    getByBreed,
 }

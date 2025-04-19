@@ -124,12 +124,12 @@ async function getByOrigin(req, res, next) {
     const { origin } = req.params;
 
     if (!origin) {
-      return res.status(400).json({ error: "Breed name is required" });
+      return res.status(400).json({ error: "This Origin its not found" });
     }
 
     const cats = await catsService.getByOrigin(origin);
     if (cats.length === 0) {
-      return res.status(404).json({ error: "No cats found for this breed" });
+      return res.status(404).json({ error: "No cats found " });
     }
 
     return res.status(200).json(cats);
@@ -145,4 +145,5 @@ module.exports = {
   getCatById,
   getByBreed,
   updateCat,
+  getByOrigin,
 };

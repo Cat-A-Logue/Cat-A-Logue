@@ -50,6 +50,9 @@ async function getByBreed(breedName) {
 async function updateCat(id, updateData) {
   return await catsRepository.updateCat(id, updateData);
 }
+async function getByOrigin(Origin) {
+  return await catsRepository.getByOrigin(origin);
+}
 
 module.exports = {
   createCat,
@@ -58,4 +61,5 @@ module.exports = {
   getCatById,
   getByBreed,
   updateCat,
+  getByOrigin,
 };

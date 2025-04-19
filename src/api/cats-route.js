@@ -25,4 +25,6 @@ module.exports = (app) => {
 
   //put / update by id
   route.put("/:id", catsController.updateCat);
+  //get cat by Origin
+  route.get("/origin/:origin", catsController.getByOrigin);
 };

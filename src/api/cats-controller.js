@@ -119,6 +119,24 @@ async function updateCat(req, res, next) {
     return next(error);
   }
 }
+async function getByOrigin(req, res, next) {
+  try {
+    const { origin } = req.params;
+
+    if (!origin) {
+      return res.status(400).json({ error: "Breed name is required" });
+    }
+
+    const cats = await catsService.getByOrigin(origin);
+    if (cats.length === 0) {
+      return res.status(404).json({ error: "No cats found for this breed" });
+    }
+
+    return res.status(200).json(cats);
+  } catch (error) {
+    return next(error);
+  }
+}
 
 module.exports = {
   createCat,

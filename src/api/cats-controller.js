@@ -151,14 +151,16 @@ async function getFactById(req, res, next) {
     const { description, characteristic } = cat;
     const factsArray = Array.isArray(characteristic)
       ? characteristic
-      : [characteristic].filter(Boolean); // handles null/undefined
+      : [characteristic].filter(Boolean);
 
     if (factsArray.length === 0) {
-      return res.status(404).json({ error: "No characteristics found for this cat" });
+      return res
+        .status(404)
+        .json({ error: "No characteristics found for this cat" });
     }
 
     const facts = factsArray;
-    
+
     return res.status(200).json({
       description,
       characteristic: facts,
@@ -178,10 +180,30 @@ async function getByCountryCode(req, res, next) {
 
     const cats = await catsService.getByCountryCode(country_code);
     if (cats.length === 0) {
-      return res.status(404).json({ error: "No cats found for this country code" });
+      return res
+        .status(404)
+        .json({ error: "No cats found for this country code" });
     }
 
     return res.status(200).json(cats);
+  } catch (error) {
+    return next(error);
+  }
+}
+
+async function deleteCatByBreed(req, res, next) {
+  try {
+    const { breed } = req.params;
+
+    if (!breed) {
+      return res.status(400).json({ error: "Breed is required" });
+    }
+
+    const deletedCat = await catsService.deleteCatByBreed(breed);
+    if (!deletedCat) {
+      return res.status(404).json({ error: "Cat not found" });
+    }
+    return res.status(200).json(deletedCat);
   } catch (error) {
     return next(error);
   }
@@ -197,4 +219,5 @@ module.exports = {
   getByOrigin,
   getFactById,
   getByCountryCode,
+  deleteCatByBreed,
 };

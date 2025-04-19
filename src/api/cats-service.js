@@ -57,12 +57,15 @@ async function getByOrigin(origin) {
 
 //Memanggil fungsi getFactById di cats-repository
 async function getFactById(id) {
-  return await catsRepository.getCatById(id); 
+  return await catsRepository.getCatById(id);
 }
 
 //Memanggil fungsi getByCountryCode di cats-repository
 async function getByCountryCode(country_code) {
   return await catsRepository.getByCountryCode(country_code);
+}
+async function deleteCatByBreed(breedName) {
+  return await catsRepository.deleteCatByBreed(breedName);
 }
 
 module.exports = {
@@ -75,4 +78,5 @@ module.exports = {
   getByOrigin,
   getFactById,
   getByCountryCode,
+  deleteCatByBreed,
 };

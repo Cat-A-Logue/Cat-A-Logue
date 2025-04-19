@@ -32,10 +32,7 @@ async function createCat(
 async function getAllCats() {
   return await Cat.find();
 }
-//fungsi untuk menghapus data cat dengan delete
-async function deleteCat(id) {
-  return await Cat.findOneAndDelete({ id });
-}
+
 //fungsi untuk mencari data cat yang lebih spesifik dengan get disertakan id
 async function getCatById(id) {
   return await Cat.findOne({ id });
@@ -65,6 +62,14 @@ async function getByCountryCode(country_code) {
   return await Cat.find({ country_code });
 }
 
+//fungsi untuk hapus cat by breed
+async function deleteCatByBreed(breedName) {
+  return await Cat.findOneAndDelete({ breed: breedName });
+}
+//fungsi untuk menghapus data cat dengan delete
+async function deleteCat(id) {
+  return await Cat.findOneAndDelete({ id });
+}
 module.exports = {
   createCat,
   getAllCats,
@@ -75,4 +80,5 @@ module.exports = {
   getByOrigin,
   getFactById,
   getByCountryCode,
+  deleteCatByBreed,
 };

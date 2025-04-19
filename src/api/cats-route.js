@@ -32,4 +32,7 @@ module.exports = (app) => {
   //get fact by id
   route.get("/fact/:id", catsController.getFactById);
 
+  //get cat by country code
+  route.get("/country/:country_code", catsController.getByCountryCode);
+
 };

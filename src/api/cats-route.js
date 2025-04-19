@@ -14,9 +14,6 @@ module.exports = (app) => {
   //get all cats
   route.get("/", catsController.getAllCats);
 
-  //delete a cat by id
-  route.delete("/:id", catsController.deleteCat);
-
   //get cat by id
   route.get("/:id", catsController.getCatById);
 
@@ -25,14 +22,16 @@ module.exports = (app) => {
 
   //put / update by id
   route.put("/:id", catsController.updateCat);
-  
+
   //get cat by Origin
   route.get("/origin/:origin", catsController.getByOrigin);
-  
+
   //get fact by id
   route.get("/fact/:id", catsController.getFactById);
 
   //get cat by country code
   route.get("/country/:country_code", catsController.getByCountryCode);
 
+  //delete cat by breed
+  route.delete("/breed/:breed", catsController.deleteCatByBreed);
 };

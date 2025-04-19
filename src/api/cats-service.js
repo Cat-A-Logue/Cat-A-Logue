@@ -50,8 +50,14 @@ async function getByBreed(breedName) {
 async function updateCat(id, updateData) {
   return await catsRepository.updateCat(id, updateData);
 }
+//Memanggil fungsi getByOrigin di cats-repository
 async function getByOrigin(origin) {
   return await catsRepository.getByOrigin(origin);
+}
+
+//Memanggil fungsi getFactById di cats-repository
+async function getFactById(id) {
+  return await catsRepository.getCatById(id); 
 }
 
 module.exports = {
@@ -62,4 +68,5 @@ module.exports = {
   getByBreed,
   updateCat,
   getByOrigin,
+  getFactById,
 };

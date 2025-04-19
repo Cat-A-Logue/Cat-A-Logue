@@ -53,6 +53,14 @@ async function updateCat(id, updateData) {
 async function getByOrigin(origin) {
   return await Cat.find({ origin });
 }
+
+// Fungsi untuk mendapatkan Fact by ID
+async function getFactById() {
+  const count = await Cat.countDocuments();
+  const random = Math.floor(Math.random() * count);
+  return await Cat.findOne().skip(random);
+}
+
 module.exports = {
   createCat,
   getAllCats,
@@ -61,4 +69,5 @@ module.exports = {
   getByBreed,
   updateCat,
   getByOrigin,
+  getFactById,
 };

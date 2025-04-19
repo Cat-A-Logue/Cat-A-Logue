@@ -60,6 +60,11 @@ async function getFactById(id) {
   return await catsRepository.getCatById(id); 
 }
 
+//Memanggil fungsi getByCountryCode di cats-repository
+async function getByCountryCode(country_code) {
+  return await catsRepository.getByCountryCode(country_code);
+}
+
 module.exports = {
   createCat,
   getAllCats,
@@ -69,4 +74,5 @@ module.exports = {
   updateCat,
   getByOrigin,
   getFactById,
+  getByCountryCode,
 };

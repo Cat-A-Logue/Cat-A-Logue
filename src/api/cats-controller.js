@@ -178,6 +178,25 @@ async function getFactById(req, res, next) {
   }
 }
 
+async function getByCountryCode(req, res, next) {
+  try {
+    const { country_code } = req.params;
+
+    if (!country_code) {
+      return res.status(400).json({ error: "Country code is required" });
+    }
+
+    const cats = await catsService.getByCountryCode(country_code);
+    if (cats.length === 0) {
+      return res.status(404).json({ error: "No cats found for this country code" });
+    }
+
+    return res.status(200).json(cats);
+  } catch (error) {
+    return next(error);
+  }
+}
+
 module.exports = {
   createCat,
   getAllCats,
@@ -187,4 +206,5 @@ module.exports = {
   updateCat,
   getByOrigin,
   getFactById,
+  getByCountryCode,
 };

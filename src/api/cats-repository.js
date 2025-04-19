@@ -60,6 +60,10 @@ async function getFactById() {
   const random = Math.floor(Math.random() * count);
   return await Cat.findOne().skip(random);
 }
+// Fungsi untuk mendapatkan data berdasarkan country_code
+async function getByCountryCode(country_code) {
+  return await Cat.find({ country_code });
+}
 
 module.exports = {
   createCat,
@@ -70,4 +74,5 @@ module.exports = {
   updateCat,
   getByOrigin,
   getFactById,
+  getByCountryCode,
 };

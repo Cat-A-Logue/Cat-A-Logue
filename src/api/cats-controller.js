@@ -143,32 +143,22 @@ async function getFactById(req, res, next) {
     const { id } = req.params;
     const limit = parseInt(req.query.limit) || 1;
 
-    if (!id) {
-      return res.status(400).json({ error: "ID is required" });
-    }
-
     const cat = await catsService.getCatById(id);
     if (!cat) {
       return res.status(404).json({ error: "Cat not found" });
     }
 
     const { description, characteristic } = cat;
-
-    let factsArray = [];
-
-    if (Array.isArray(characteristic)) {
-      factsArray = characteristic;
-    } else if (typeof characteristic === "string") {
-      factsArray = [characteristic];
-    }
+    const factsArray = Array.isArray(characteristic)
+      ? characteristic
+      : [characteristic].filter(Boolean); // handles null/undefined
 
     if (factsArray.length === 0) {
       return res.status(404).json({ error: "No characteristics found for this cat" });
     }
 
-    const shuffled = factsArray.sort(() => 0.5 - Math.random());
-    const facts = shuffled.slice(0, Math.min(limit, factsArray.length));
-
+    const facts = factsArray;
+    
     return res.status(200).json({
       description,
       characteristic: facts,

@@ -50,7 +50,7 @@ async function getByBreed(breedName) {
 async function updateCat(id, updateData) {
   return await catsRepository.updateCat(id, updateData);
 }
-async function getByOrigin(Origin) {
+async function getByOrigin(origin) {
   return await catsRepository.getByOrigin(origin);
 }
 

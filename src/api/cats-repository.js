@@ -49,7 +49,10 @@ async function getByBreed(breedName) {
 async function updateCat(id, updateData) {
   return await Cat.findByIdAndUpdate(id, updateData, { new: true });
 }
-
+// Fungsi untuk mencari  data menggunakan id
+async function getByOrigin(origin) {
+  return await Cat.find({ origin });
+}
 module.exports = {
   createCat,
   getAllCats,
@@ -57,4 +60,5 @@ module.exports = {
   getCatById,
   getByBreed,
   updateCat,
+  getByOrigin,
 };

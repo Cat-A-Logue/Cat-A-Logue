@@ -9,4 +9,6 @@ const route = express.Router();
 module.exports = (app) => {
 app.use('/favourites', route);
 
+// Post /favourites
+route.post("/", favouritesController.createFavourite);
 }

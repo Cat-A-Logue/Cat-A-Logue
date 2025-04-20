@@ -1,4 +1,4 @@
-const Cat = require("../database"); //Untuk connect ke schema database
+const Cat = require("../../models/cat-model"); //Untuk connect ke schema cat
 
 //fungsi untuk membuat data cat dengan create
 async function createCat(

@@ -12,7 +12,12 @@ async function getFavouriteByCatAndSub(cat_id, sub_id) {
     return await Favourite.findOne({ cat_id, sub_id });
 }
 
+async function deleteFavourite(cat_id, sub_id) {
+  return await Favourite.deleteOne({ cat_id, sub_id });
+}
+
 module.exports = {
   createFavourite,
   getFavouriteByCatAndSub,
+  deleteFavourite,
 };

@@ -21,6 +21,30 @@ async function createFavourite(req, res, next) {
   }
 }
 
+// Fungsi tambahan untuk menghapus favourite
+async function deleteFavourite(req, res, next) {
+  try {
+    const cat_id = Number(req.params.cat_id);
+    const sub_id = req.params.sub_id;
+
+    if (!cat_id || !sub_id) {
+      return res.status(400).json({ error: "cat_id and sub_id are required." });
+    }
+
+    const favourite = await favouritesService.getFavouriteByCatAndSub(cat_id, sub_id);
+    if (!favourite) {
+      return res.status(404).json({ error: "Favourite not found." });
+    }
+
+    await favouritesService.deleteFavourite(cat_id, sub_id);
+
+    return res.status(200).json({ message: "Favourite deleted successfully." });
+  } catch (error) {
+    return next(error);
+  }
+}
+
 module.exports = {
   createFavourite,
+  deleteFavourite,
 };

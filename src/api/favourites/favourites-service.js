@@ -8,7 +8,12 @@ async function getFavouriteByCatAndSub(cat_id, sub_id) {
     return await favouritesRepository.getFavouriteByCatAndSub(cat_id, sub_id)
 }
 
+//Fungsi untuk menghapus favourite berdasarkan cat_id dan sub_id
+async function deleteFavourite(cat_id, sub_id) {
+  return await favouritesRepository.deleteFavourite(cat_id, sub_id);
+}
 module.exports = {
   createFavourite,
   getFavouriteByCatAndSub,
+  deleteFavourite,
 };

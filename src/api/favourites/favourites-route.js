@@ -11,4 +11,7 @@ app.use('/favourites', route);
 
 // Post /favourites
 route.post("/", favouritesController.createFavourite);
+
+// Delete /favourites/:cat_id/:sub_id
+route.delete("/:cat_id/:sub_id", favouritesController.deleteFavourite);
 }

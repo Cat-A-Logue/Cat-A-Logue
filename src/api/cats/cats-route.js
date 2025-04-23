@@ -14,6 +14,9 @@ module.exports = (app) => {
   //get all cats
   route.get("/", catsController.getAllCats);
 
+  //delete cat
+  route.delete("/:id", catsController.deleteCat);
+
   //get cat by id
   route.get("/:id", catsController.getCatById);
 

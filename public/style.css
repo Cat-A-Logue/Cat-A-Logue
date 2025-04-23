@@ -1,0 +1,126 @@
+@font-face {
+    font-family: 'Font';
+    src: url('/fonts/SimpleHandmade.ttf') format('truetype');
+}
+
+body{
+    background-color: #895129;
+}
+
+.container{
+    padding: 20px 0 20px 0;
+    display: grid;
+    grid-template-areas: 
+    "welcome-text"
+    "image-show"
+    "desc-box";
+    place-items : center;
+    row-gap: 10px;
+}
+
+.text{
+    padding-top: 20px;
+    color:#895129;
+    text-align: center;
+    font-size: 20px;
+}
+
+.header{
+    padding-top: 10px;
+    color:#895129;
+    text-align: center;
+    font-size: 50px;
+}
+
+.welcome-text{
+    padding: 20px 0px 20px 0px;
+    background-color:rgb(253, 229, 200);
+    border : 4px dashed burlywood;
+    border-radius : 20px;
+    width:800px;
+    height:200px;
+    align-items : center;
+    grid-area: welcome-text;
+}
+
+.image-show{
+    height:500px;
+    width: 600px;
+    grid-area: image-show;
+    justify-content: center;
+    text-align:center;
+
+}
+
+.header2{
+    color: rgb(253, 229, 200);
+}
+.cat-image {
+    max-width: 50%;
+    max-height: 65%;
+    border : 4px groove burlywood;
+    border-radius : 20px;
+    object-fit: cover;
+}
+
+.desc-box{
+    background-color: rgb(253, 229, 200);
+    width: 80%;
+    height: 40vh;
+    border : 4px dashed burlywood;
+    border-radius : 20px;
+    grid-area: "desc-box";
+    justify-content: center;
+    margin-top : 0;
+}
+.desc-header{
+    font-family: 'Font'; 
+    text-align : center;
+    color : #895129;
+    font-size : 50px;
+}
+.desc-text{
+    font-family: 'Font'; 
+    margin : 5px 10px 10px 5px;
+    color :#825f46;
+    text-align : center; 
+    font-size : 20px;
+}
+
+button{
+    font-size : 30px;
+    color:#895129;
+    background-color:blanchedalmond;
+    border-color:blanchedalmond;
+    overflow:hidden;
+}
+
+.left-button {
+    margin-right: 5px;
+}
+.right-button {
+    margin-left: 5px;
+}
+
+
+button:hover{
+    cursor:grab;
+}
+
+
+.background-logo {
+    background-image: url("./images/Cat-A-Logue.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: top center;
+    background-size: contain;
+    object-fit: cover;
+    width: 100%;
+    height: 50vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

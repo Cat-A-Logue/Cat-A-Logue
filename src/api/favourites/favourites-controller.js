@@ -44,7 +44,17 @@ async function deleteFavourite(req, res, next) {
   }
 }
 
+// Fungsi tambahan untuk mendapatkan semua favourite
+async function getAllFavourites(req, res, next) {
+  try {
+    const favourites = await favouritesService.getAllFavourites();
+    return res.status(200).json(favourites);
+  } catch (error) {
+    return next(error);
+  }
+}
 module.exports = {
   createFavourite,
   deleteFavourite,
+  getAllFavourites,
 };

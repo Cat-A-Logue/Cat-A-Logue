@@ -12,8 +12,14 @@ async function getFavouriteByCatAndSub(cat_id, sub_id) {
 async function deleteFavourite(cat_id, sub_id) {
   return await favouritesRepository.deleteFavourite(cat_id, sub_id);
 }
+
+//Fungsi untuk mendapatkan semua favourite
+async function getAllFavourites() {
+  return await favouritesRepository.getAllFavourites();
+}
 module.exports = {
   createFavourite,
   getFavouriteByCatAndSub,
   deleteFavourite,
+  getAllFavourites,
 };

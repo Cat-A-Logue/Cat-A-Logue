@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- settingan head dari website, seperti character setnya, viewport nya, dan lain2-->
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width">
  <link rel="stylesheet" href="style.css">
- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- untuk bisa mengambil icon google heart-->
  <title> Cat-A-Logue API </title>
 </head>
 
 <body>
- <div class = "background-logo"></div>
- <div class = "container">
+ <div class = "background-logo"></div> <!-- grid kosong untuk header menggunakan background--> 
+ <div class = "container"> <!-- div grid container untuk layout simple-->
+   <!--Section welcome text -->
   <div class = "welcome-text">
     <h1 class = "header">Welcome to Cat-A-Logue!</h1>
     <p class = "text"> This is the place where you can see cat images,<br>
                        cat description, and also favourite an image </p>
   </div>
-  <div class = "image-show"> 
+  <!--Flex Wrapper untuk meraphikan tampilan -->
+  <div class ="content-wrapper">
+    <!--Section menampilkan image dan button-button khusus -->
+   <div class = "image-show"> 
     <h1 class = "header2">Press The Left and Right Button to Switch the Images!</h1>
     <img src="" class="cat-image"><br>
     <button class = "left-button"> < </button>
     <button class = "favourite-button"> <i class="material-icons icon-style">favorite</i> </button>
     <button class = "right-button"> > </button>
-  </div>
-  <div class = "desc-box">
+   </div>
+    <!--Section description box yang bisa berubah dengan buttons -->
+   <div class = "desc-box">
      <p class = "desc-header"> Cat Information: </p>
      <p id = "breed" class = "desc-text"> </p>
      <p id = "origin" class = "desc-text"> </p>
      <p id = "life-span" class = "desc-text"> </p>
      <p id = "characteristic" class = "desc-text"> </p>
      <p id = "description" class = "desc-text"></p>
+     <p id = "favourite" class = "desc-text"></p>
+    </div>
   </div>
  </div>
  <script src="code.js"></script>
